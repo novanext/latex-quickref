@@ -11,10 +11,16 @@
 \usepackage{amsmath} % extended mathematics functionality (\eqref{,\text, etc})
 \usepackage[separate-uncertainty=true]{siunitx} % correct typesetting of numbers and units
 
+\usepackage{todonotes} %allows you to insert 'todo' annotations
+
+
 \definecolor{darkblue}{rgb}{0,0,0.5} % defines color 'darkblue'
 
 % hyperref: makes all citations, references and urls clickable
 \usepackage[colorlinks=true, urlcolor=darkblue, anchorcolor=darkblue, filecolor=green, linkcolor=darkblue, menucolor=darkblue,citecolor=darkblue,pdfpagemode=UseOutlines, pdfstartview=FitH,hypertexnames={false},bookmarksopen=true,breaklinks=true,pdfencoding=unicode]{hyperref}
+
+
+\usepackage{cleveref} %gives you the \cref -like commands for nicer cross referencing
 
 
 \title{The title}
@@ -31,8 +37,10 @@ Insert abstract text here.
 \tableofcontents
 
 \section{A section}
+\label{sec: a section}
 
 \subsection{A subsection}
+\label{sec: a subsection}
 
 \bibliographystyle{plain}
 \bibliography{papers} % use 'papers.bib' in the document folder as bibliographic library
