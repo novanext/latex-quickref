@@ -1,0 +1,1 @@
+The template.tex file contains a basic document structure with \usepackage commands for all the packages listed in the quickreference file.
