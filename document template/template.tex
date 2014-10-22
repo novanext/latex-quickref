@@ -1,0 +1,40 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[english]{babel} % proper hyphenation for english
+\usepackage[utf8]{inputenc} % allows typing of non-unicode characters
+\usepackage[T1]{fontenc} % for better display of non ascii characters in output pdf
+\usepackage[small,bf,hang]{caption} % nicer captions for figures and tables
+\usepackage{xcolor} % for the use of colors
+\usepackage{fourier} % sets the font to Utopia and provides additional mathematical symbols
+\usepackage{booktabs} % feature for elegant tables with \toprule, \midrule and \bottomrule
+\usepackage{graphicx} % for including figures
+\usepackage{amsmath} % extended mathematics functionality (\eqref{,\text, etc})
+\usepackage[separate-uncertainty=true]{siunitx} % correct typesetting of numbers and units
+
+\definecolor{darkblue}{rgb}{0,0,0.5} % defines color 'darkblue'
+
+% hyperref: makes all citations, references and urls clickable
+\usepackage[colorlinks=true, urlcolor=darkblue, anchorcolor=darkblue, filecolor=green, linkcolor=darkblue, menucolor=darkblue,citecolor=darkblue,pdfpagemode=UseOutlines, pdfstartview=FitH,hypertexnames={false},bookmarksopen=true,breaklinks=true,pdfencoding=unicode]{hyperref}
+
+
+\title{The title}
+\author{The author}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+Insert abstract text here.
+\end{abstract}
+
+\tableofcontents
+
+\section{A section}
+
+\subsection{A subsection}
+
+\bibliographystyle{plain}
+\bibliography{papers} % use 'papers.bib' in the document folder as bibliographic library
+
+\end{document}
