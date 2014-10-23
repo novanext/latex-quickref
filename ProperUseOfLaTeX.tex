@@ -1,0 +1,112 @@
+\documentclass[fleqn, 12pt]{iopart-mod}
+
+\RequirePackage[load-configurations=abbreviations, mode=text]{siunitx}
+\DeclareSIUnit{\micm}{\micro\metre}
+\usepackage{xcolor}
+\definecolor{darkblue}{rgb}{0,0,0.5} 
+\definecolor{red}{rgb}{1,0,0} 
+\usepackage{graphicx}
+\usepackage[intlimits]{amsmath}
+\usepackage{url}
+\usepackage{doi}
+\usepackage{pslatex}
+\usepackage{booktabs}
+\usepackage{ragged2e}
+
+\begin{document}
+
+\title{Proper use of \LaTeX{}}
+
+\author{Johan B.~C. Engelen}
+\ead{j.b.c.engelen@alumnus.utwente.nl}
+
+\address{University of Twente, Enschede, the Netherlands} 
+        
+\begin{abstract}
+How to properly  write scientific text using \LaTeX{}. Many people make many typographical mistakes, even journals make them. And because I am quite pedantic about this, here is a list of how it should be done. Unfortunately for you, it is not up for debate, it is just the way it is written below. 
+\emph{Authors of scientific literature are likely to have no clue about all this!}
+\emph{Editors of scientific literature are (arguably a little less) likely to have no clue either!} 
+Typesetters of scientific literature know something, but they too make mistakes; see \emph{e.g.} J. Micromech. Microeng., with an italic `mu' in micrometer. 
+
+Following the rules here, I think you'll find it much easier to read math. Mathematical typography requires attention to detail. 
+You should understand the difference in meaning between $\mu_p = \left(\frac{T}{100}\right)^p$ and $\mu_\text{p} = \left(\frac{T}{100}\right)^p$.
+Perhaps then you'll appreciate the beauty of written mathematical language.
+
+Have fun!
+
+\vspace{5em}
+For a less agitated (and better, but longer) text on scientific typesetting, see \cite{Beccari1997}.
+\end{abstract}
+
+\maketitle
+
+%#############################################################
+\RaggedRight
+
+\section{Packages}
+Have a look at the preamble of this document. Useful packages are: \verb|siunitx| for writing units, \verb|booktabs| for making nice tables, \verb|amsmath| mostly for the \verb|\text| command.
+
+For IOP journals, use the modified LaTeX package used by this package, in order to use \verb|siunitx| and \verb|amsmath|.
+
+\section{Units}
+
+\textbf{Units} should be \textbf{upright}, not italic. Why? Because in most contexts, $10 cm^2$ means ten times the speed of light times variable $m$ squared. Ten centimeter squared should be typeset as \SI{10}{cm^2}, written in \LaTeX{} as \verb|10~cm$^2$|, or (better) using the \verb|siunitx| package: \verb|\SI{10}{cm^2}|. Note the thin space between number and unit.
+The package documentation of \verb|siunitx| is well worth reading.
+
+Micrometer is abbreviated by \si{\micm}, note that the `mu' is upright! $\mu$m is wrong and means something like permeability times meter? Compare with an acceleration of $10g$~\si{N.m^{-2}}, where $g$ is the standard gravity; and $10$~\si{g.N.m^{-2}}, meaning 10 grams Newton per meter squared. An interesting unit is the `kilo Watt hour' unit \si{\kWh}: \SI{11}{\kWh} and \SI{11}{\kWh\per\metre} (note the behaviour of \verb|siunitx|: (absence of) thin space between `W' and `h').
+
+In tables, the units should \textbf{not be between square brackets}. Correct usage of the brackets: $\left[ F \right] = \si{\newton}$, so you hardly ever want to use that. If you want, you can put the units between normal parens ().
+
+\section{Subscripts}
+\textbf{Subscripts} in math should in most of \emph{our} cases be \textbf{upright}. Why? Because a subscript in italic has a mathematical meaning; an upright subscript is just simple text, meaning a word or abbreviation of something. To write an upright subscript, use \verb|\text|, e.g. \verb|$k_\text{eff}$|, $k_\text{eff}$.
+
+\begin{tabular}{@{}ll@{}}
+\toprule
+Symbols   &  Meaning \\
+\cmidrule(r){1-1}\cmidrule(l){2-2}
+$E_x$            & electric field in $x$ direction \\
+$E_\text{plate}$ & electric field due to some charged plate \\
+$k_{eff}$        & $k$ with indices $e$, $f$, and $f$. So e.g. $k_{122}$ \\
+$k_\text{eff}$   & effective $k$ (e.g. an effective spring stiffness) \\
+$n_i$            & $n$ with index $i$, e.g. $\displaystyle\sum_{i=1}^{10} {n_i}$ \\
+$n_\text{i}$     & $n$ with subscript abbreviation `i', perhaps intrinsic carrier concentration \\
+$m_\text{e}$     & electron mass \\
+$k_B$            & some $k$ having to do with a magnetic field $B$? \\
+$k_\text{B}$     & = \SI{1.3806504(24)e-23}{\joule\per\kelvin} \\
+$E_\text{xmax}$  & yuk! \\
+$E_{x,\text{max}}$  & neat! \\
+$\displaystyle\int_{all space}$ & lots of indices! \\
+$\displaystyle\int_\text{all space}$ & superb \\
+\bottomrule
+\end{tabular}
+
+\section{Misc math stuff}
+
+\begin{tabular}{@{}ll@{}}
+\toprule
+Symbols   &  Meaning \\
+\cmidrule(r){1-1}\cmidrule(l){2-2}
+$cos(2\pi)$      & $c$ times $o$ times $s(2\pi)$ (probably $s$ is a function) \\ 
+$\cos(2\pi)$     & = 1 \\
+$\cos^{-1}(2\pi)$     & = 1 \\
+$\arccos(2\pi)$     & argument $2\pi$ is outside the domain of the inverse cosine function \\
+$exp(\ldots)$    & $e$ times $x$ times \ldots \\
+$\exp(\ldots)$    & $e^{\ldots}$, this is probably what you meant \\
+\bottomrule
+\end{tabular}
+
+\section{Approximately, proportional to, plus-minus}
+If something (for example, a measurement error or actuation range) ranges from \SI{-50}{\micm} to \SI{+50}{\micm}, you write that as \verb|\SI{+-50}{\micm}|, \SI{+-50}{\micm}. If something is approximately \SI{50}{\micm}, you write \verb|$\sim$\SI{50}{\micm}|, $\sim$\SI{50}{\micm}, or \verb|$E \sim 5$|, $E \sim 5$, or \verb|$E \approx 5$|, $E \approx 5$. If $E$ is proportional to $T$, you write \verb|$E \propto T$|, $E \propto T$.
+
+\section{Quotes}
+Use \textbf{double quotes} for \textbf{real quotations}, i.e. text that has actually been said or written. ``For example,'' Johan said. 
+Use \textbf{single quotes} for \textbf{`strange'} words. 
+Note that the start and end quotes are different! Use \verb|`| at the start, and \verb|'| at the end.
+
+%#####################################
+\RaggedRight
+\bibliographystyle{bst/johan-thesis2}
+\bibliography{paperbase}
+
+\end{document}
+
