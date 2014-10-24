@@ -267,6 +267,7 @@ F = m \cdot a
 \begin{itemize}
 \item \verb|\usepackage[english]{babel}|: Ensures proper hyphenation in the English language.
 \item \verb|\usepackage[utf8]{inputenc}|: Állöws typïng ôf ùníçøde chårâçtérs.
+\item \verb|\usepackage[T1]{fontenc}|: extends the default OT1 7-bit font encoding of TeX to the T1 8-bit font encoding
 \item \verb|\usepackage[small,bf,hang]{caption}|: Nicer captions for figures and tables.
 \item \verb|\usepackage{xcolor}|: allows you to color text, like: \verb|{\color{red}{|..\verb|}| which will look {\color{red} like this}.
 \item \verb|\usepackage{fourier}|: sets the font to Utopia which is nice and modern looking. Also provides lots of additional mathematics symbols.
@@ -275,7 +276,7 @@ F = m \cdot a
 \item \verb|\usepackage{amsmath}|: extended mathematics functionality
 \item \verb|\usepackage{siunitx}|: typesetting numbers and units, see section \ref{sec:siunitx}.
 \item \verb|\usepackage{hyperref}|: makes all citations, references and URLs \hyperref[clickable]{clickable} in the output pdf. \label{clickable}
-\item \verb|\usepackage[T1]{fontenc}|: extends the default OT1 7-bit font encoding of TeX to the T1 8-bit font encoding
+\item \verb|\usepackage{cleveref}|: a cleverer way to do cross-referencing than the standard way. Import this package after all the others.
 \end{itemize}
 
 
@@ -302,6 +303,7 @@ Also the readability of large numbers like `1000000' can be improved by writing 
 \end{wraptable}
 
 Finally, \verb|siunitx| supports automatic alignment of the numbers within table columns. This enables for example centering on the decimal marks. All you need to do is change the column argument of the tabular command. Example: \verb|\begin{tabular}{S S[table-parse-only]}|. This example will result in a table with two columns. The left column will be decimal-centered while the right column will be centered in the regular way.
+
 
 \appendix
 
