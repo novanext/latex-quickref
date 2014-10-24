@@ -262,7 +262,6 @@ F = m \cdot a
 \newpage
 \section{Essential packages}
 
-\subsection{Things you should put in your preamble}
 
 \begin{itemize}
 \item \verb|\usepackage[english]{babel}|: Ensures proper hyphenation in the English language.
@@ -304,15 +303,16 @@ Also the readability of large numbers like `1000000' can be improved by writing 
 
 Finally, \verb|siunitx| supports automatic alignment of the numbers within table columns. This enables for example centering on the decimal marks. All you need to do is change the column argument of the tabular command. Example: \verb|\begin{tabular}{S S[table-parse-only]}|. This example will result in a table with two columns. The left column will be decimal-centered while the right column will be centered in the regular way.
 
-
+\clearpage
 \section{Optional packages}
-The packages listed here are not required in any way, but provide functionality you might desire occasionally.
+The packages listed here are not required to create a document, but provide functionality you might desire occasionally.
 
 \begin{itemize}
 \item \verb|\usepackage{fullpage}|: Uses the entire page for the document.
 \item \verb|\usepackage{geometry}|: Allows you to manually specify the dimensions of margins, headers, footers, etc.
-\item \verb|\usepackage{todonotes}:| Allows you to add little todo notes in the document margins and print a list of all todos.
+\item \verb|\usepackage{todonotes}:| Allows you to add little todo notes in the document and its margins, insert missing figure placeholders and print a list of all todos.
 \item \verb|\usepackage{natbib}|: Extended literature citation functionality.
+\item \verb|\usepackage{glossaries}|: To create glossaries, nomenclatures and alike.
 \end{itemize}
 
 
