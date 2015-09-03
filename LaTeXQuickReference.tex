@@ -259,6 +259,19 @@ To place an equation on a separate line and let \LaTeX{} assign a reference numb
 F = m \cdot a
 \end{equation}
 
+\subsection{Subscripts}
+
+To place upright text inside a math environment, use one of the following commands:
+
+\begin{itemize}
+	\item \verb|\mathrm{upright text}| (preferred): $F_\mathrm{normal}$
+	\item \verb|\textnormal{upright text}|: $F_\textnormal{normal}$
+	\item \verb|\textrm{upright text}|: $F_\textrm{normal}$
+	\item \verb|\text{upright text}|: $F_\text{normal}$
+	\item \verb|\textup| (part of package amsmath): $F_\textup{normal}$
+\end{itemize}
+
+
 \newpage
 \section{Essential packages}
 
@@ -277,6 +290,8 @@ F = m \cdot a
 \item \verb|\usepackage{hyperref}|: makes all citations, references and URLs \hyperref[clickable]{clickable} in the output pdf. \label{clickable}
 \item \verb|\usepackage{cleveref}|: a cleverer way to do cross-referencing than the standard way. Import this package after all the others.
 \end{itemize}
+
+
 
 
 \subsection{SIunitx}\label{sec:siunitx}
