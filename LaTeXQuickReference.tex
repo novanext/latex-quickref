@@ -20,7 +20,7 @@
 
 \title{\LaTeX{} Quick Reference}
 \author{Jaap Kokorian and Tjitte-Jelte Peters}
-
+\date{}
 
 \begin{document}
 \maketitle
@@ -29,7 +29,7 @@
 \newpage
 \section{Introduction}\label{sec:introduction}
 
-This document offers some guidance to novice \LaTeX{} users. It is a list of frequently used \LaTeX{} commands and packages. With just the information in this document it is possible to create a manuscript that contains most commonly used typographic entities like bullets, enumerations, graphics, tables and math. Of course not all \LaTeX{} features are included in this list. But because \LaTeX{} has a very active online community, anything related to \LaTeX{} can be easily found by performing an online search.
+This document offers some guidance to novice \LaTeX{} users. It is a list of frequently used \LaTeX{} commands and packages. With just the information in this document it is possible to create a manuscript that contains most commonly used typographic entities like bullets, enumerations, graphics, tables and math.
 
 \section{Commonly used \LaTeX~commands}
 
@@ -37,18 +37,20 @@ This document offers some guidance to novice \LaTeX{} users. It is a list of fre
 \caption{Document skeleton}
 \begin{tabularx}{\textwidth}{lX}
 	\toprule
-	\LaTeX~command                                    & Description                                                                                     \\ 
+	\LaTeX~command                                           & Description                                                                                     \\ 
 	\midrule
 	\verb|\documentclass|\verb|[<fontsize>,<paper>]{<type>}| & The start of every latex file. Sets the document class file to use.                             \\
 	\verb|\usepackage|\verb|{}|                              & Loads a package.                                                                                \\
 	\verb|\title|\verb|{<title>}|                            & Sets the document title.                                                                        \\
 	\verb|\author|\verb|{<name>}|                            & Sets the author name or names.                                                                  \\
-	\verb|\maketitle|                                 & Creates the title (article) or title page (report,book)                                         \\
-	\verb|\tableofcontents|                           & Inserts a table of contents                                                                     \\
+	\verb|\begin|\verb|{document}|	                                 & Start of the actual document content.                                                           \\
+	\verb|\maketitle|                                 	     & Inserts the title (article) or title page (report, book).                                        \\
+	\verb|\tableofcontents|                                  & Inserts a table of contents.                                                                    \\
 	\verb|\input|\verb|{file}|                               & Inserts the contents of \verb|file|.                                                            \\
-	\verb|\include|\verb|{file}|                             & Inserts the contents of \verb|file| preceded and followed by a \verb|\clearpage|                \\
-	\verb|\bibliographystyle|\verb|{stylefile}|              & Defines which .bst style file to use for the bibliography (use \verb|unsrt| if you don't care). \\
-	\verb|\bibliography|\verb|{bibfile}|                  & Defines which .bib file to use and renders the bibliography section.                      \\ 
+	\verb|\include|\verb|{file}|                             & Inserts the contents of \verb|file| preceded and followed by a \verb|\clearpage|.               \\
+	\verb|\bibliographystyle|\verb|{stylefile}|              & Defines which .bst style file to use for the bibliography (use \verb|unsrt| if you do not care). \\
+	\verb|\bibliography|\verb|{bibfile}|                     & Defines which .bib file to use and renders the bibliography section.                            \\ 
+	\verb|\en|\verb|d{document}|	                         & End of the document.                                                                            \\
 	\bottomrule
 \end{tabularx}
 \end{table}
@@ -59,13 +61,13 @@ This document offers some guidance to novice \LaTeX{} users. It is a list of fre
 \toprule
 \LaTeX~command & Description \\
 \midrule
-\verb|{\bf ..}| & bold font\\
-\verb|{\it ..}| & italic font\\
-\verb|{\ul ..}| & underlined font\\
-\verb|\emph{..}| & emphasized font (usually italic, but may depend on document class)\\
+\verb|{\bf ..}| & Bold font\\
+\verb|{\it ..}| & Italic font\\
+\verb|{\ul ..}| & Underlined font\\
+\verb|\emph|\verb|{..}| & Emphasized font (usually italic, but may depend on document class)\\
 \verb|$^\textnormal|\verb|{..}$| & Superscript \\
 \verb|$_\textnormal|\verb|{..}$| & Subscript \\
-\verb|{\small ..},{\normalsize ..},{\large ..} etc| & font size\\
+\verb|{\small ..}|, \verb|{\normalsize ..}|, \verb|{\large ..}|, etc. & Font size\\
 \bottomrule
 \end{tabularx}
 \end{table}
@@ -112,7 +114,7 @@ This document offers some guidance to novice \LaTeX{} users. It is a list of fre
 \midrule
 \verb|\label|\verb|{..}| & Inserts a label. Examples: \verb|\label|\verb|{fig:myFig}|, \verb|\label|\verb|{sec:theory}|, \verb|\label{eq:gauss}|.\\
 \verb|\ref|\verb|{..}| & Inserts a reference to a label.\\
-\verb|\eqref|\verb|{..}| & Inserts a reference to an equation (package \verb|amsmath|). Example: \verb|\eqref|\verb|{eq:gauss}|. \\
+\verb|\cref|\verb|{..}| & Inserts a reference to a label including a mention of the label's environment (package \verb|cleveref|). Example: \verb|\cref|\verb|{fig:myFig}| produces ``figure 10''. \\
 \verb|\cite|\verb|{..}| & Inserts a citation to a bibliographic item.\\
 \verb|\pageref|\verb|{}| & Inserts a reference to the page number of a label.\\
 \verb|\footnote|\verb|{..}| & Creates a superscript footnote symbol and puts the footnote text at the bottom of the page.\\
@@ -182,13 +184,14 @@ Result:
 
 \section{Floating environments}
 
-A floating environment is a document element of which the exact location cannot be directly controlled by the user, but is automatically determined by \LaTeX. Most floating environments have a 'caption': a block of text which is printed above or below the content.
+A floating environment is a document element of which the exact location cannot be directly controlled by the user, but is automatically determined by \LaTeX. Most floating environments have a caption: a block of text which is printed above or below the content.
 
-All floating environments can be given an optional argument that specifies where \LaTeX{} should \emph{attempt} to place it. The options are \verb|h| (here), \verb|t| (top of the page), \verb|b| (bottom of the page) and \verb|p| (separate page). Multiple arguments can be given to specify in which order \LaTeX should attempt to place the floating environment. For example: \verb|[htbp]| means: try to place it here, if that fails place it on top of the page, on the bottom of the page, or, if that also fails, place it on it's own page. An exclamation mark behind one of the characters forces \LaTeX{} to try harder. The default float location argument is \verb|[tbp]|.
+All floating environments can be given an optional argument that specifies where \LaTeX{} should \mbox{\emph{attempt}} to place it. The options are \verb|h| (here), \verb|t| (top of the page), \verb|b| (bottom of the page) and \verb|p| (separate page). Multiple arguments can be given to specify in which order \LaTeX should attempt to place the floating environment. For example: \verb|[htbp]| means: try to place it here, if that fails place it on top of the page, on the bottom of the page, or, if that also fails, place it on it's own page. An exclamation mark behind one of the characters forces \LaTeX{} to try harder. The default float location argument is \verb|[tbp]|.
 
 \subsection{Figure}
 
-When rendered to PDF, \LaTeX{} supports the following image file formats: png, pdf, jpg.
+\LaTeX{} supports png, pdf, and jpg image file formats.
+\vspace{3mm}
 
 \noindent\verb|\begin{figure}[htbp]|\\
 \verb|\includegraphics{pics/something_interesting.pdf}|\\
@@ -241,8 +244,7 @@ Result:
 
 \subsection{Inline math}
 
-To type math expressions inside a normal paragraph, surround the math expression with dollar signs. Example: this sentence contains an inline formula that depends on $x$ and $y$. Here it is: $y=\int_{0}^{x} 2x'\textnormal{d}x'+3 $.
-
+To type math expressions inside a normal paragraph, surround the math expression with dollar signs. Example: this sentence contains an inline formula that depends on $x$ and $y$. Here it is: $y=\int_{0}^{x} 2x'\textnormal{d}\!x'+3 $.
 
 \subsection{Equation environment}
 
@@ -279,16 +281,16 @@ To place upright text inside a math environment, use one of the following comman
 \begin{itemize}
 \item \verb|\usepackage[english]{babel}|: Ensures proper hyphenation in the English language.
 \item \verb|\usepackage[utf8]{inputenc}|: Állöws typïng ôf ùníçøde chårâçtérs.
-\item \verb|\usepackage[T1]{fontenc}|: extends the default OT1 7-bit font encoding of TeX to the T1 8-bit font encoding
+\item \verb|\usepackage[T1]{fontenc}|: extends the default OT1 7-bit font encoding of TeX to the T1 8-bit font encoding.
 \item \verb|\usepackage[small,bf,hang]{caption}|: Nicer captions for figures and tables.
 \item \verb|\usepackage{xcolor}|: allows you to color text, like: \verb|{\color{red}{|..\verb|}| which will look {\color{red} like this}.
 \item \verb|\usepackage{fourier}|: sets the font to Utopia which is nice and modern looking. Also provides lots of additional mathematics symbols.
 \item \verb|\usepackage{booktabs}|: allows you to use the commands \verb|\toprule|, \verb|\midrule| and \verb|\bottomrule| in tables which is nice.
 \item \verb|\usepackage{graphicx}|: without this package it is impossible to include figures!
-\item \verb|\usepackage{amsmath}|: extended mathematics functionality
-\item \verb|\usepackage{siunitx}|: typesetting numbers and units, see section \ref{sec:siunitx}.
+\item \verb|\usepackage{amsmath}|: extended mathematics functionality.
 \item \verb|\usepackage{hyperref}|: makes all citations, references and URLs \hyperref[clickable]{clickable} in the output pdf. \label{clickable}
 \item \verb|\usepackage{cleveref}|: a cleverer way to do cross-referencing than the standard way. Import this package after all the others.
+\item \verb|\usepackage{siunitx}|: typesetting numbers and units, see section \ref{sec:siunitx}.
 \end{itemize}
 
 
@@ -296,16 +298,16 @@ To place upright text inside a math environment, use one of the following comman
 
 \subsection{SIunitx}\label{sec:siunitx}
 
-The \verb|siunitx| package introduces a set of absolutely essential commands for typesetting numbers with units. Never again look for the `mu' symbol, but simply type \verb|\SI{10}{\micro\metre}|, to get \SI{10}{\micro\metre}. Note that the space between the number and the unit is slightly smaller than the space between two words, which is exactly the way it is supposed to be and which is really tedious to accomplish with a program like MS Word.
+The \verb|siunitx| package introduces a set of absolutely essential commands for typesetting numbers with units. Never again look for the `mu' symbol, but simply type \verb|\SI{10}{\micro\meter}|, to get \SI{10}{\micro\meter}. Note that the space between the number and the unit is slightly smaller than the space between two words, which is exactly the way it is supposed to be and which is really tedious to accomplish with a program like MS Word.
 
-Also the readability of large numbers like `1000000' can be improved by writing \verb|\num{1000000}|, which results in \num{1000000}. Delimiters (thin spaces in this case) divide the number in groups consisting of no more than three digits.
+The readability of large numbers like `1000000' can be improved by writing \verb|\num{1000000}|, which results in \num{1000000}. Delimiters (thin spaces in this case) divide the number into groups consisting of no more than three digits.
 
 \begin{wraptable}[8]{r}{0.4\textwidth}
 \caption{A table with aligned numbers}
 \centering
 \begin{tabular}{S S[table-parse-only]}
 \toprule
-{Decimal-centered} &
+{Decimal-aligned} &
 {Regular centering} \\
 \midrule
 1234.5 & 1234.5 \\
@@ -316,7 +318,7 @@ Also the readability of large numbers like `1000000' can be improved by writing 
 \label{tab:someTable}
 \end{wraptable}
 
-Finally, \verb|siunitx| supports automatic alignment of the numbers within table columns. This enables for example centering on the decimal marks. All you need to do is change the column argument of the tabular command. Example: \verb|\begin{tabular}{S S[table-parse-only]}|. This example will result in a table with two columns. The left column will be decimal-centered while the right column will be centered in the regular way.
+Finally, \verb|siunitx| supports automatic alignment of the numbers within table columns. This enables for example aligning on the decimal marks. All you need to do is change the column argument of the tabular command. Example: \verb|\begin{tabular}{S S[table-parse-only]}|. This example will result in a decimal-aligned left column, and a regularly centered right column.
 
 \clearpage
 \section{Optional packages}
