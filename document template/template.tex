@@ -3,13 +3,17 @@
 \usepackage[english]{babel} % proper hyphenation for english
 \usepackage[utf8]{inputenc} % allows typing of non-unicode characters
 \usepackage[T1]{fontenc} % for better display of non ascii characters in output pdf
-\usepackage[small,bf,hang]{caption} % nicer captions for figures and tables
+\usepackage{xspace} % automatic placement of a spaces (see example: define your own math symbol shortcuts)
 
 \usepackage{fourier} % sets the font to Utopia and provides additional mathematical symbols
-\usepackage{booktabs} % feature for elegant tables with \toprule, \midrule and \bottomrule
+
 \usepackage{graphicx} % for including figures
-\usepackage{amsmath} % extended mathematics functionality (\eqref{,\text, etc})
+\usepackage[small,bf,hang]{caption} % nicer captions for figures and tables
+\usepackage{booktabs} % feature for elegant tables with \toprule, \midrule and \bottomrule
+
+\usepackage{amsmath} % extended mathematics functionality
 \usepackage[separate-uncertainty=true]{siunitx} % correct typesetting of numbers and units
+\usepackage{physics} % lot's of handy math shortcuts: \curl{}, \div{}, \pdv{}{}, etc
 
 \usepackage{todonotes} % allows you to insert 'todo' annotations
 \usepackage{subcaption} % sllows you to insert sub-figures and captions
@@ -17,11 +21,23 @@
 \usepackage{xcolor} % for the use of colors
 \definecolor{darkblue}{rgb}{0,0,0.5} % defines color 'darkblue'
 
+\usepackage[numbers]{natbib} % advanced bibliographic features
+
 % hyperref: makes all citations, references and urls clickable
 \usepackage[colorlinks=true, urlcolor=darkblue, anchorcolor=darkblue, filecolor=green, linkcolor=darkblue, menucolor=darkblue,citecolor=darkblue,pdfpagemode=UseOutlines, pdfstartview=FitH,hypertexnames={false},bookmarksopen=true,breaklinks=true,pdfencoding=unicode]{hyperref}
 
+\usepackage{doi}
 
 \usepackage{cleveref} %gives you the \cref -like commands for nicer cross referencing
+
+%%%% EXAMPLE: define your own math symbol shortcuts %%%%%
+
+% because of ensuremath, the command can be used inside and outside math mode.
+\newcommand{\Kspring}{\ensuremath{K_\mathrm{spring}}\xspace} 
+\newcommand{\Fxmax}{\ensuremath{F_{x,\mathrm{max}}}\xspace} 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
 
 \title{The title}
@@ -39,6 +55,21 @@ Insert abstract text here.
 
 \section{A section}
 \label{sec: a section}
+
+We can use the variables we defined both inside and outside math-mode: \Kspring, $\Kspring$, \Fxmax, $\Fxmax$.
+
+Here are some nice examples of the functionality of siunitx:
+
+\begin{itemize}
+	\item \SI{16}{\um\per\second} = \SI{16}{\micro\meter\per\s}
+	\item \SI{3+-0.5}{nm}
+	\item \SIrange{20}{30}{\kWh}
+	\item \SI{1e5}{\meter\per\second}
+	\item \num{900000} (thin space as thousants separator)
+	\item \num{\sim e6}
+	\item \si{\um}
+\end{itemize}
+
 
 \subsection{A subsection}
 \label{sec: a subsection}
