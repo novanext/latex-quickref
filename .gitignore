@@ -5,3 +5,5 @@
 *.bbl
 *.blg
 *.out
+
+install-packages.pdf
